@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="./lib/react.development.js"></script>
+    <script src="./lib/react-dom.development.js"></script>
+    <script src="./lib/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<script type="text/babel">
+    //{}中可以运行js代码语法  包含运算操作，变量读取，函数调用
+   let arr = [{
+       name:"老李",
+       worker:"领导"
+   },{
+       name:"袁老师",
+       worker:"教授"
+   },{
+       name:"小召",
+       worker:"项目经理"
+   },{
+       name:"老刘",
+       worker:"职员"
+   }]
+   let style1 = {
+       background:"red",
+       border:"1px solid black"
+   }
+   var narr = arr.map((item,index)=>{
+       return <li>
+            <h2 style={style1} >{item.name}</h2>
+            <p>{item.worker}</p>
+        </li>
+   })
+    ReactDOM.render(
+        <div><ul>{narr}</ul></div>,
+        document.querySelector("#app")
+    )
+</script>
+</html>

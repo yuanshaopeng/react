@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!--react的主库文件。-->
+    <script src="lib/react.development.js"></script>
+    <script src="lib/react-dom.development.js"></script>
+    <script src="lib/babel.min.js"></script>
+</head>
+<body>
+    <div id="app">
+            <button>+1</button>
+    </div>
+    
+</body>
+<script type="text/babel">
+    function getTime () {
+        let date = new Date();
+        let mouth = date.getMonth()+1>9?date.getMonth()+1:"0"+(date.getMonth()+1);
+        let day = date.getDate()>9?date.getDate():"0"+date.getDate();
+        let h = date.getHours()>9?date.getHours():"0"+date.getHours();
+        let m = date.getMinutes()>9?date.getMinutes():"0"+date.getMinutes();
+        let s = date.getSeconds()>9?date.getSeconds():"0"+date.getSeconds();
+        return date.getFullYear()+"-"+mouth+"-"+day+" "+h+":"+m+":"+s
+    }
+    console.log(getTime());
+    
+    
+    function timer(){
+        const elm = <h1>全村的希望--袁少鹏 发布日期：{getTime()}</h1><p/>;
+        ReactDOM.render(
+            elm,
+            document.querySelector("#app")
+        )
+    }
+    setInterval(timer, 1000);
+    
+</script>
+</html>
